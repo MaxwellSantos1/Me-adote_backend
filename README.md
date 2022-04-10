@@ -1,4 +1,4 @@
-## API Me-Adote 
+## API Me-Adote Pet
 
 # Backend
   - Criação de uma API usando Spring Boot 
