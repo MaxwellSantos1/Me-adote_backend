@@ -1,10 +1,10 @@
 package br.com.meadote.meadote.services;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Sort;
 
 import br.com.meadote.meadote.models.Pet;
 import br.com.meadote.meadote.repositories.PetRepository;
@@ -24,19 +24,21 @@ public class PetService {
     }
 
     public List<Pet> findAll() {
-        return petRepository.findAll();
+        return petRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 
     public Pet atualizarPet(Pet pet, int id) {
         Pet petset = petRepository.findById(id);
+
+        petset.setId(pet.getId());
         petset.setNome(pet.getNome());
-        petset.setraca(pet.getraca());
         petset.setPeso(pet.getPeso());
-        petset.setIdade(pet.getIdade());
-        petset.setGenero(pet.getGenero());
-        petset.setDescricao(pet.getDescricao());
-        petset.setUrlImagem(pet.getUrlImagem());
         petset.setId_dono(pet.getId_dono());
+        petset.setDescricao(pet.getDescricao());
+        petset.setraca(pet.getraca());
+        petset.setGenero(pet.getGenero());
+        petset.setIdade(pet.getIdade());
+        petset.setCategoria(pet.getCategoria());
 
         return petset;
     }

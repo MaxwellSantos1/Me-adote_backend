@@ -11,4 +11,6 @@ import br.com.meadote.meadote.models.Pessoa;
 public interface PessoaRepository extends JpaRepository<Pessoa, Integer> {
 
     List<Pessoa> findAll();
+
+    Pessoa findById(int id);
 }

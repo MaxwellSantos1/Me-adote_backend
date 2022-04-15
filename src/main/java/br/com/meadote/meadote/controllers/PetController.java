@@ -41,7 +41,11 @@ public class PetController {
 
     @PutMapping("{id}")
     public ResponseEntity<Pet> update(@RequestBody Pet pet, @PathVariable int id) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(petService.atualizarPet(pet, id));
+        Pet newpet = petService.atualizarPet(pet, id);
+
+        petService.atualizarPet(newpet, id);
+
+        return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("{id}")

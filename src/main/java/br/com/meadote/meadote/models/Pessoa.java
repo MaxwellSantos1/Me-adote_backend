@@ -30,6 +30,10 @@ public class Pessoa {
     @Column
     private String urlPerfil;
 
+    public Pessoa() {
+
+    }
+
     public Pessoa(String nome, String email, List<Pet> petFavorites, String urlPerfil) {
         this.nome = nome;
         this.email = email;
