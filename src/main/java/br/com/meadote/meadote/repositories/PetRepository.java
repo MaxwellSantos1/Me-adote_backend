@@ -15,7 +15,7 @@ import br.com.meadote.meadote.models.Pet;
 @Transactional
 public interface PetRepository extends JpaRepository<Pet, Integer> {
 
-    @Query(value = "SELECT u.categoria FROM Pet u WHERE u.categoria = :categoria")
+    @Query(value = "SELECT u FROM Pet u WHERE u.categoria = :categoria")
     List<Object[]> findPetByCategoria(@Param("categoria") String categoria);
 
     List<Pet> findAll();
