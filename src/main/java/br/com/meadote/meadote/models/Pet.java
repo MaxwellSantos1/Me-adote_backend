@@ -2,14 +2,17 @@ package br.com.meadote.meadote.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.transaction.Transactional;
 
 @Entity
-@Table(name = "TB_PET")
+@Transactional
+@Table(name = "pet")
 public class Pet implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -18,22 +21,31 @@ public class Pet implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Column
     private String nome;
 
+    @Column
     private String peso;
 
+    @Column
     private Integer id_dono;
 
+    @Column
     private String urlImagem;
 
+    @Column
     private String descricao;
 
+    @Column
     private String raca;
 
+    @Column
     private String genero;
 
+    @Column
     private Integer idade;
 
+    @Column
     private String categoria;
 
     public Pet() {

@@ -2,9 +2,7 @@ package br.com.meadote.meadote.controllers;
 
 import java.util.List;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.config.RepositoryNameSpaceHandler;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -50,6 +48,11 @@ public class PetController {
     public ResponseEntity<Pet> deletePet(@PathVariable int id) {
         petService.deletarPet(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/findpetbycategoria/{categoria}")
+    public ResponseEntity<List<Object[]>> findpetByCategoria(@PathVariable("categoria") String categoria) {
+        return ResponseEntity.ok(petService.findPetByCategoria(categoria));
     }
 
 }

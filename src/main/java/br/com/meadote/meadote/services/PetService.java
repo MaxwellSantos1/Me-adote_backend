@@ -1,5 +1,6 @@
 package br.com.meadote.meadote.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,10 +39,15 @@ public class PetService {
         petset.setId_dono(pet.getId_dono());
 
         return petset;
-
     }
 
     public void deletarPet(int id) {
         petRepository.deleteById(id);
     }
+
+    public List<Object[]> findPetByCategoria(String categoria) {
+        return petRepository.findPetByCategoria(categoria);
+
+    }
+
 }

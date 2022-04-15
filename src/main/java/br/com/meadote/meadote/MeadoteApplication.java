@@ -8,6 +8,7 @@ public class MeadoteApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MeadoteApplication.class, args);
+
 	}
 
 }
