@@ -3,8 +3,8 @@ package br.com.meadote.meadote.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Sort;
 
 import br.com.meadote.meadote.models.Pessoa;
 import br.com.meadote.meadote.repositories.PessoaRepository;
@@ -24,12 +24,13 @@ public class PessoaService {
     }
 
     public List<Pessoa> findAll() {
-        return pessoaRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
+        return pessoaRepository.findAll((Sort.by(Sort.Direction.ASC, "id")));
     }
 
-    
     public Pessoa atualizarPessoa(Pessoa pessoa, int id) {
         Pessoa pessoaset = pessoaRepository.findById(id);
+
+        pessoaset.setId(pessoa.getId());
         pessoaset.setNome(pessoa.getNome());
         pessoaset.setEmail(pessoa.getEmail());
         pessoaset.setPetFavorites(pessoa.getPetFavorites());

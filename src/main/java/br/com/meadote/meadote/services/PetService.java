@@ -30,7 +30,6 @@ public class PetService {
     public Pet atualizarPet(Pet pet, int id) {
         Pet petset = petRepository.findById(id);
 
-        petset.setId(pet.getId());
         petset.setNome(pet.getNome());
         petset.setPeso(pet.getPeso());
         petset.setId_dono(pet.getId_dono());

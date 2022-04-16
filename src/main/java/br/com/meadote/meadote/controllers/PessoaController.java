@@ -41,7 +41,12 @@ public class PessoaController {
 
     @PutMapping("{id}")
     public ResponseEntity<Pessoa> update(@RequestBody Pessoa pessoa, @PathVariable int id) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(pessoaService.atualizarPessoa(pessoa, id));
+    
+        pessoaService.atualizarPessoa(pessoa, id);
+
+        pessoaService.salvarPessoa(pessoa);
+
+        return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("{id}")
